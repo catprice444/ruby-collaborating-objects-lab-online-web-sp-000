@@ -18,13 +18,13 @@ class Song
 
   def artist_name=(name)
     self.artist = Artist.find_or_create_by_name(name)
-    self.artist.add_song(self)
+    self.artist.add_song(name)
   end
 
   def self.new_by_filename(filename)
     song = filename.split(" - ")[1]
     artist_name = filename.split(" - ")[0]
-    song = self.new(song)
+    song = Song.new(song)
     song.artist_name = artist
     # artist_name = Artist.find_or_create_by_name(filename)
     song
