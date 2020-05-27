@@ -25,11 +25,11 @@ class Artist
     @songs
   end
 
-  def self.create(name)
-    artist = self.new(name)
-    artist.save
-    artist
-  end
+  # def self.create(name)
+  #   artist = self.new(name)
+  #   artist.save
+  #   artist
+  # end
 
   def self.find(name)
     self.all.find {|artist| artist.name == name}
@@ -39,7 +39,7 @@ class Artist
     if self.find(name)
       self.find(name)
     else
-      self.create(name)
+      self.new(name)
     end
   end
 
